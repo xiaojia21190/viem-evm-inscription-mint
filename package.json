@@ -1,0 +1,59 @@
+{
+  "name": "pkg-placeholder",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "eth",
+  "license": "MIT",
+  "bugs": "https://github.com/antfu/pkg-placeholder/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.4.0",
+    "@antfu/ni": "^0.21.12",
+    "@antfu/utils": "^0.7.6",
+    "@types/node": "^20.10.4",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.55.0",
+    "esno": "^4.0.0",
+    "pnpm": "^8.11.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
+    "vite": "^5.0.6",
+    "vitest": "^1.0.2"
+  },
+  "dependencies": {
+    "viem": "^1.19.13"
+  }
+}
