@@ -1,11 +1,11 @@
-import { createPublicClient, http, parseEther, parseGwei, toHex } from 'viem'
-import { waitForTransactionReceipt } from 'viem/_types/actions/public/waitForTransactionReceipt';
+import { createPublicClient, http, parseEther, toHex } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts';
 import { polygon } from "viem/chains";
 import config from './config';
 
 const get_transaction = async (text_data: string) => {
   const client = createPublicClient({
+    key: config.privateKey as `0x${string}`,
     chain: polygon,
     transport: http(config.rpcUrl)
   })
@@ -13,15 +13,18 @@ const get_transaction = async (text_data: string) => {
   const account = privateKeyToAccount(config.privateKey as `0x${string}`);
   const value = parseEther(config.payPrice);
   const data_hex = toHex(text_data);
+  const currentGasPrice = await client.getGasPrice();
+  const gasMultiple = parseInt(String(config.increaseGas * 100))
+  const increasedGasPrice = currentGasPrice / BigInt(100) * BigInt(gasMultiple);
+
+  console.log('increasedGasPrice', increasedGasPrice);
+
   const gas_estimate = await client.estimateGas({
     account,
     to: account.address,
     value: value,
     data: data_hex
   })
-  const currentGasPrice = await client.getGasPrice();
-  const gasMultiple = parseInt(String(config.increaseGas * 100))
-  const increasedGasPrice = currentGasPrice / BigInt(100) * BigInt(gasMultiple);
 
   const transaction = {
     to: account.address,
@@ -39,17 +42,19 @@ const get_transaction = async (text_data: string) => {
     ...transaction,
     account
   })
-  console.log(request);
-
+  console.log('request===', request);
   const signed_transaction = await account.signTransaction({
     ...request,
     chainId: client.chain.id
   })
+  console.log('signed_transaction===', signed_transaction);
   const hash = await client.sendRawTransaction({ serializedTransaction: signed_transaction })
-  await waitForTransactionReceipt(client, {
+  console.log('hash===', hash);
+
+  const receipt = await client.waitForTransactionReceipt({
     hash,
   })
-
+  console.log('receipt===', receipt);
 }
 
 
@@ -60,7 +65,7 @@ const main = async () => {
 
 //运行50次
 for (const [iter, index] of Array(config.repeatCount).entries()) {
-  console.log(`第${iter}次`);
+  console.log(`第${iter + 1}次`);
   await main();
   await new Promise((resolve) => setTimeout(resolve, config.sleepTime));
 }

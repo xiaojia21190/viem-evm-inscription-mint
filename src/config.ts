@@ -1,7 +1,6 @@
-//config
 const config = {
   // 你想要打多少张，这里就设置多少，建议单次别超过 50，不然容易不上链
-  repeatCount: 1000,
+  repeatCount: 1,
 
   // 在当前的 gas 基础上增加多少倍
   increaseGas: 1.5,
