@@ -40,10 +40,6 @@ pnpm install
 
 ### Step 3: 运行 Mint 脚本程序
 ```shell
-node index.js
-```
-or
-```shell
 pnpm start
 ```
 or
