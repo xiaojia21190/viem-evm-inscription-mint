@@ -1,9 +1,18 @@
 {
   "name": "viem-evm-inscription-mint",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "eth",
   "license": "MIT",
+  "private": false,
+  "author": "xiaojiazi",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "keywords": [
+    "eth",
+    "evm",
+    "viem"
+  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -24,6 +33,7 @@
     "vitest": "^1.0.2"
   },
   "dependencies": {
-    "viem": "^1.19.13"
+    "viem": "^1.19.13",
+    "panda-telegram-bot": "1.0.1"
   }
 }
