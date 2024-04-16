@@ -1,43 +1,44 @@
 {
-    "name": "viem-evm-inscription-mint",
-    "type": "module",
-    "version": "0.0.2",
-    "description": "eth",
-    "license": "MIT",
-    "private": false,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/xiaojia21190/viem-evm-inscription-mint"
-    },
-    "author": "xiaojiazi",
-    "main": "src/index.ts",
-    "module": "src/index.ts",
-    "keywords": [
-        "eth",
-        "evm",
-        "viem"
-    ],
-    "scripts": {
-        "build": "unbuild",
-        "dev": "unbuild --stub",
-        "release": "bumpp && npm publish",
-        "start": "esno src/index.ts",
-        "test": "vitest",
-        "typecheck": "tsc --noEmit"
-    },
-    "devDependencies": {
-        "@types/node": "^20.10.4",
-        "bumpp": "^9.2.0",
-        "eslint": "^8.55.0",
-        "esno": "^4.0.0",
-        "pnpm": "^8.11.0",
-        "rimraf": "^5.0.5",
-        "typescript": "^5.3.3",
-        "unbuild": "^2.0.0",
-        "vitest": "^1.0.2"
-    },
-    "dependencies": {
-        "viem": "^1.19.13",
-        "panda-telegram-bot": "1.0.1"
-    }
+  "name": "viem-evm-inscription-mint",
+  "type": "module",
+  "version": "0.0.4",
+  "description": "eth",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaojia21190/viem-evm-inscription-mint"
+  },
+  "author": "xiaojiazi",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "keywords": [
+    "eth",
+    "evm",
+    "viem"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.55.0",
+    "esno": "^4.0.0",
+    "pnpm": "^8.11.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
+    "vitest": "^1.0.2"
+  },
+  "dependencies": {
+    "viem": "^1.19.13",
+    "panda-telegram-bot": "1.0.3",
+    "eth_track_pos": "0.0.1"
+  }
 }
