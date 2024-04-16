@@ -1,9 +1,19 @@
 {
-  "name": "viem-evm-inscription-mint",
+  "name": "eth_track_pos",
   "type": "module",
   "version": "0.0.1",
   "description": "eth",
   "license": "MIT",
+  "author": "xiaojiazi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaojia21190/eth_track_pos"
+  },
+  "keywords": [
+    "eth",
+    "pos",
+    "track"
+  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -24,6 +34,8 @@
     "vitest": "^1.0.2"
   },
   "dependencies": {
-    "viem": "^1.19.13"
+    "viem": "^1.19.13",
+    "viem-evm-inscription-mint": "0.0.2",
+    "panda-telegram-bot": "1.0.1"
   }
 }
